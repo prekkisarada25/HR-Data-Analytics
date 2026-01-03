@@ -87,8 +87,11 @@ select e.First_Name as Employee_Name, s.Gross_Salary
 from EmployeeDetails e
 join SalaryDetails s on e.Emp_Id=s.Emp_Id;
 
---> Cross Join
-use HR_Analytics_Database
-select e.First_Name , s.Gross_Salary
-from EmployeeDetails e
-cross join SalaryDetails s ;
+--> Attendance Summary
+select 
+    e.First_Name,
+    a.Attendance_Date,
+    a.Status_of_Emp
+from AttendanceTable a
+join EmployeeDetails e ON a.Emp_Id = e.Emp_Id;
+
